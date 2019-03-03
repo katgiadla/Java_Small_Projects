@@ -59,7 +59,7 @@ public class Main {
         double side = 0;
 
         do{
-            System.out.println("Please enter a first side");
+            System.out.println("Please enter a side");
             try {
                 side = sc.nextDouble();
             } catch (InputMismatchException e1){
@@ -101,50 +101,75 @@ public class Main {
         return;
     }
 
-    public static void main(String argv[]){
+    public static void main(String argv[]) {
         Scanner scanner = new Scanner(System.in);
-        boolean loopVariable = false;
+        boolean loopVariable = false, mainLoop = false, endLoop = true;
         int userChoice = 0;
 
         do {
-            System.out.println("Which a figure do you want to compute?");
-            System.out.println("1. Triangle");
-            System.out.println("2. Square");
-            System.out.println("3. Circle");
-            try {
+            do {
+                System.out.println("Which a figure do you want to compute?");
+                System.out.println("1. Triangle");
+                System.out.println("2. Square");
+                System.out.println("3. Circle");
+                try {
 
-                userChoice = scanner.nextInt();
-                if (userChoice == 1 || userChoice == 2 || userChoice == 3) {
+                    userChoice = scanner.nextInt();
+                    if (userChoice == 1 || userChoice == 2 || userChoice == 3) {
+                        break;
+                    } else {
+                        throw new IllegalArgumentException();
+                    }
+                } catch (InputMismatchException e1) {
+                    System.out.println("Please enter a number\n");
+                    scanner.nextLine();
+                } catch (IllegalArgumentException e2) {
+                    System.out.println("Please enter a correct number\n");
+                    scanner.nextLine();
+                }
+            } while (!loopVariable);
+
+            switch (userChoice) {
+                case 1: {
+                    computeTriangle();
                     break;
                 }
-                else{
-                    throw new IllegalArgumentException();}
-            } catch (InputMismatchException e1) {
-                System.out.println("Please enter a number");
-                scanner.nextLine();
-            } catch (IllegalArgumentException e2){
-                System.out.println("Please enter a correct number");
-                scanner.nextLine();
+                case 2: {
+                    computeSquare();
+                    break;
+                }
+                case 3: {
+                    computeCircle();
+                    break;
+                }
             }
-        } while (!loopVariable);
 
-        switch (userChoice){
-            case 1:{
-                computeTriangle();
-                break;
-            }
-            case 2:{
-                computeSquare();
-                break;
-            }
-            case 3:{
-                computeCircle();
-                break;
-            }
-        }
+            do {
+                userChoice = 0;
+                System.out.println("Do you want to compute anything else?");
+                System.out.println("1. Yes");
+                System.out.println("0. No");
 
-        
+                try {
+                    userChoice = scanner.nextInt();
+                    if (userChoice == 0 || userChoice == 1) {
+                        if (userChoice == 0) {
+                            mainLoop = false;
+                        } else {
+                            mainLoop = true;
+                        }
+                        endLoop = false;
+                    } else {
+                        throw new IllegalArgumentException();
+                    }
+                } catch (IllegalArgumentException e1) {
+                    System.out.println("Please enter a correct number\n");
+                    scanner.nextLine();
+                } catch (InputMismatchException e2) {
+                    System.out.println("Please enter a number\n");
+                    scanner.nextLine();
+                }
+            } while (endLoop);
+        } while (mainLoop);
     }
-
 }
-
