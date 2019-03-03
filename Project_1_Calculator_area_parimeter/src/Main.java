@@ -48,7 +48,7 @@ public class Main {
 
         Triangle myTriangle = new Triangle(side1, side2, side3);
         myTriangle.calculateArea();
-        myTriangle.calculatePerimetr();
+        myTriangle.calculatePerimeter();
         myTriangle.print();
         return;
     }
@@ -72,7 +72,7 @@ public class Main {
 
         Square mySquare = new Square(side);
         mySquare.calculateArea();
-        mySquare.calculatePerimetr();
+        mySquare.calculatePerimeter();
         mySquare.print();
         return;
     }
@@ -95,7 +95,7 @@ public class Main {
         } while(!correctParametrs);
 
         Circle myCircle = new Circle(radius);
-        myCircle.calculatePerimetr();
+        myCircle.calculatePerimeter();
         myCircle.calculateArea();
         myCircle.print();
         return;

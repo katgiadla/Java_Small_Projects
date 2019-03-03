@@ -10,7 +10,7 @@ public class Circle extends Figure implements Print {
     }
 
     @Override
-    public double calculatePerimetr() {
+    public double calculatePerimeter() {
         this.Parimeter = 2 * Math.PI * this.Radius;
         return this.Parimeter;
     }

@@ -1,4 +1,3 @@
-import java.lang.Math.*;
 import java.util.Locale;
 
 public class Square extends Figure implements Print{
@@ -10,7 +9,7 @@ public class Square extends Figure implements Print{
     }
 
     @Override
-    public double calculatePerimetr() {
+    public double calculatePerimeter() {
         this.Parimeter = 4 * this.Side;
         return this.Parimeter;
     }

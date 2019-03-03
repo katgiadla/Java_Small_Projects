@@ -12,7 +12,7 @@ public class Triangle extends Figure implements Print{
     }
 
     @Override
-    public double calculatePerimetr() {
+    public double calculatePerimeter() {
         this.Parimeter = this.Side1 + this.Side2 + this.Side3;
         return this.Parimeter;
     }
