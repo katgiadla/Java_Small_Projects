@@ -5,7 +5,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
-    public void computeTriangle(){
+    public static void computeTriangle() {
         boolean correctParametrs = false;
         Scanner sc = new Scanner(System.in);
         double side1 = 0, side2 = 0, side3 = 0;
@@ -20,7 +20,7 @@ public class Main {
                 continue;
             }
             correctParametrs = true;
-        } while(correctParametrs);
+        } while(!correctParametrs);
 
         do{
             System.out.println("Please enter a second side");
@@ -32,7 +32,7 @@ public class Main {
                 continue;
             }
             correctParametrs = true;
-        } while(correctParametrs);
+        } while(!correctParametrs);
 
         do{
             System.out.println("Please enter a third side");
@@ -44,12 +44,60 @@ public class Main {
                 continue;
             }
             correctParametrs = true;
-        } while(correctParametrs);
+        } while(!correctParametrs);
 
         Triangle myTriangle = new Triangle(side1, side2, side3);
         myTriangle.calculateArea();
         myTriangle.calculatePerimetr();
         myTriangle.print();
+        return;
+    }
+
+    public static void computeSquare(){
+        boolean correctParametrs = false;
+        Scanner sc = new Scanner(System.in);
+        double side = 0;
+
+        do{
+            System.out.println("Please enter a first side");
+            try {
+                side = sc.nextDouble();
+            } catch (InputMismatchException e1){
+                System.out.println("Please enter a number");
+                correctParametrs = false;
+                continue;
+            }
+            correctParametrs = true;
+        } while(!correctParametrs);
+
+        Square mySquare = new Square(side);
+        mySquare.calculateArea();
+        mySquare.calculatePerimetr();
+        mySquare.print();
+        return;
+    }
+
+    public static void computeCircle(){
+        boolean correctParametrs = false;
+        Scanner sc = new Scanner(System.in);
+        double radius = 0.0;
+
+        do{
+            System.out.println("Please enter a first side");
+            try {
+                radius = sc.nextDouble();
+            } catch (InputMismatchException e1){
+                System.out.println("Please enter a number");
+                correctParametrs = false;
+                continue;
+            }
+            correctParametrs = true;
+        } while(!correctParametrs);
+
+        Circle myCircle = new Circle(radius);
+        myCircle.calculatePerimetr();
+        myCircle.calculateArea();
+        myCircle.print();
         return;
     }
 
@@ -80,7 +128,22 @@ public class Main {
             }
         } while (!loopVariable);
 
+        switch (userChoice){
+            case 1:{
+                computeTriangle();
+                break;
+            }
+            case 2:{
+                computeSquare();
+                break;
+            }
+            case 3:{
+                computeCircle();
+                break;
+            }
+        }
 
+        
     }
 
 }
