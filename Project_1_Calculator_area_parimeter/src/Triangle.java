@@ -19,9 +19,9 @@ public class Triangle extends Figure implements Print{
 
     @Override
     public double calculateArea() {
-        double halfParimeter = this.Parimeter/2;
+        double halfParimeter = (this.Side1 + this.Side2 + this.Side3)/2;
         this.Area = halfParimeter * (halfParimeter-this.Side1) * (halfParimeter-this.Side2) * (halfParimeter-this.Side3);
-        this.Area = sqrt(this.Area);
+        this.Area = Math.sqrt(this.Area);
         return this.Area;
     }
 
