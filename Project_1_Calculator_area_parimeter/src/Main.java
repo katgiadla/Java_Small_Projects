@@ -83,7 +83,7 @@ public class Main {
         double radius = 0.0;
 
         do{
-            System.out.println("Please enter a first side");
+            System.out.println("Please enter a radius");
             try {
                 radius = sc.nextDouble();
             } catch (InputMismatchException e1){
