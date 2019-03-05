@@ -1,56 +1,73 @@
-import jdk.jshell.spi.ExecutionControl;
-
-import java.io.IOException;
+import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
+    public static boolean isTriangle(double[] newSides){
+        Arrays.sort(newSides);
+        if (newSides[newSides.length - 1] < (newSides[0] + newSides[1])){
+            return true;
+        } else{
+            throw new ArithmeticException();
+        }
+    }
+
     public static void computeTriangle() {
         boolean correctParametrs = false;
+        boolean canBeATriangle = false;
         Scanner sc = new Scanner(System.in);
         double side1 = 0, side2 = 0, side3 = 0;
+        do {
+            do {
+                System.out.println("Please enter a first side");
+                try {
+                    side1 = sc.nextDouble();
+                } catch (InputMismatchException e1) {
+                    System.out.println("Please enter a number");
+                    correctParametrs = false;
+                    continue;
+                }
+                correctParametrs = true;
+            } while (!correctParametrs);
 
-        do{
-            System.out.println("Please enter a first side");
-            try {
-                side1 = sc.nextDouble();
-            } catch (InputMismatchException e1){
-                System.out.println("Please enter a number");
-                correctParametrs = false;
-                continue;
-            }
-            correctParametrs = true;
-        } while(!correctParametrs);
+            do {
+                System.out.println("Please enter a second side");
+                try {
+                    side2 = sc.nextDouble();
+                } catch (InputMismatchException e1) {
+                    System.out.println("Please enter a number");
+                    correctParametrs = false;
+                    continue;
+                }
+                correctParametrs = true;
+            } while (!correctParametrs);
 
-        do{
-            System.out.println("Please enter a second side");
-            try {
-                side2 = sc.nextDouble();
-            } catch (InputMismatchException e1){
-                System.out.println("Please enter a number");
-                correctParametrs = false;
-                continue;
-            }
-            correctParametrs = true;
-        } while(!correctParametrs);
+            do {
+                System.out.println("Please enter a third side");
+                try {
+                    side3 = sc.nextDouble();
+                } catch (InputMismatchException e1) {
+                    System.out.println("Please enter a number");
+                    correctParametrs = false;
+                    continue;
+                }
+                correctParametrs = true;
+            } while (!correctParametrs);
 
-        do{
-            System.out.println("Please enter a third side");
+            double[] newSides = {side1, side2, side3};
+
             try {
-                side3 = sc.nextDouble();
-            } catch (InputMismatchException e1){
-                System.out.println("Please enter a number");
-                correctParametrs = false;
-                continue;
+                canBeATriangle = isTriangle(newSides);
+            } catch (ArithmeticException e1) {
+                canBeATriangle = false;
+                System.out.println("From this sides can not originate a triangle. Please entry a new sides");
             }
-            correctParametrs = true;
-        } while(!correctParametrs);
+        }while(!canBeATriangle);
 
         Triangle myTriangle = new Triangle(side1, side2, side3);
         myTriangle.calculateArea();
         myTriangle.calculatePerimeter();
         myTriangle.print();
-        return;
     }
 
     public static void computeSquare(){
