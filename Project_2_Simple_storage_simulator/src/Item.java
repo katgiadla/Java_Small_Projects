@@ -10,4 +10,8 @@ public class Item {
         this.weight = newWeigtht;
         this.amount = newAmount;
     }
+
+    public void print(){
+        System.out.println();
+    }
 }
