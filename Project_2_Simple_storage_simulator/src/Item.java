@@ -4,7 +4,7 @@ public class Item implements Print, Comparable<Item>{
     Double weight;
     Integer amount;
 
-    public Item(String newName, ItemCondition newCondition, Double newWeigtht, Integer newAmount){
+    Item(String newName, ItemCondition newCondition, Double newWeigtht, Integer newAmount){
         this.name = newName;
         this.condition = newCondition;
         this.weight = newWeigtht;
