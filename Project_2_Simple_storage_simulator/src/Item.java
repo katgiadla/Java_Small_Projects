@@ -1,4 +1,4 @@
-public class Item implements Print {
+public class Item implements Print, Comparable<Item>{
     String name;
     ItemCondition condition;
     Double weight;
@@ -12,12 +12,16 @@ public class Item implements Print {
     }
 
     @Override
-    public void print(){
+    public void print() {
         System.out.println(String.format("Product: %s", this.name));
         System.out.println(String.format("Condition: " + this.condition));
         System.out.println(String.format("Weight: %.2f", this.weight));
         System.out.println(String.format("Amount: %i", this.amount));
     }
 
-    
+    @Override
+    public int compareTo(Item exampleItem){
+        return name.compareTo(exampleItem.name);
+    }
+
 }
