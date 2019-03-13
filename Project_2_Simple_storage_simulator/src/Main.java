@@ -18,7 +18,7 @@ public class Main {
             myFirstFulfilment.addProduct(thirdProduct);
             List<Item> testListOfItems1 = myFirstFulfilment.search("Apple");
             List<Item> testListOfItems2 = myFirstFulfilment.searchPartial("ppl");
-
+            myFirstFulfilment.summary();
         } catch (IllegalArgumentException err1) {
             System.err.println("If you add this product, the fulfillment will be overflowing");
         } catch (NullPointerException err2) {

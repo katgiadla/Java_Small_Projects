@@ -98,4 +98,11 @@ public class FulfilmentCenter implements Comparator<Item>{
         else
             return myTmpListOfItem;
     }
+
+    void summary(){
+        if (listOfProducts.isEmpty()){ throw new NullPointerException();}
+        for (Item iterator: listOfProducts) { iterator.print(); }
+    }
+
+    
 }
