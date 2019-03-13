@@ -8,11 +8,14 @@ public class Main {
         firstProduct.print();
         FulfilmentCenter myFirstFulfilment = new FulfilmentCenter();
         Item secondProduct = new Item("Apple", ItemCondition.NEW, 0.23, 2);
-        Item thirdProduct = new Item("aPPle", ItemCondition.NEW, 0.24, 11);
+        Item thirdProduct = new Item("aPPle", ItemCondition.NEW, 0.24, 2);
         try {
             myFirstFulfilment.addProduct(firstProduct);
             myFirstFulfilment.addProduct(secondProduct);
+            myFirstFulfilment.getProduct(thirdProduct);
             myFirstFulfilment.removeProduct(thirdProduct);
+            Item fourthProduct = myFirstFulfilment.search("Apple");
+
         } catch (IllegalArgumentException err1) {
             System.err.println("If you add this product, the fulfillment will be overflowing");
         } catch (NullPointerException err2) {
@@ -20,6 +23,5 @@ public class Main {
         } catch (NoSuchElementException err3){
             System.err.println("In fulfilment isn't found this product");
         }
-        myFirstFulfilment.getProduct(thirdProduct);
     }
 }
