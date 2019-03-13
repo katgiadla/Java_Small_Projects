@@ -1,3 +1,4 @@
+import java.util.LinkedList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -10,14 +11,18 @@ public class Main {
         Item secondProduct = new Item("Apple", ItemCondition.NEW, 0.23, 2);
         Item fourthProduct = new Item("Apple", ItemCondition.REFURBISHED, 0.23, 2);
         Item thirdProduct = new Item("Pineapple", ItemCondition.NEW, 0.24, 2);
+        Item fifthProduct = new Item("Lemonade", ItemCondition.NEW, 2.0, 3);
         try {
             myFirstFulfilment.addProduct(firstProduct);
             myFirstFulfilment.addProduct(secondProduct);
             myFirstFulfilment.addProduct(fourthProduct);
             myFirstFulfilment.getProduct(thirdProduct);
             myFirstFulfilment.addProduct(thirdProduct);
+            myFirstFulfilment.addProduct(fifthProduct);
             List<Item> testListOfItems1 = myFirstFulfilment.search("Apple");
             List<Item> testListOfItems2 = myFirstFulfilment.searchPartial("ppl");
+            myFirstFulfilment.summary();
+            myFirstFulfilment.sortByName();
             myFirstFulfilment.summary();
         } catch (IllegalArgumentException err1) {
             System.err.println("If you add this product, the fulfillment will be overflowing");

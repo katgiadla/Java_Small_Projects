@@ -104,5 +104,13 @@ public class FulfilmentCenter implements Comparator<Item>{
         for (Item iterator: listOfProducts) { iterator.print(); }
     }
 
-    
+    void sortByName(){
+        if (listOfProducts.isEmpty()){ throw new NullPointerException(); }
+        Collections.sort(listOfProducts, new Comparator<Item>() {
+            @Override
+            public int compare(Item o1, Item o2) {
+                return o1.name.compareToIgnoreCase(o2.name);
+            }
+            });
+    }
 }
