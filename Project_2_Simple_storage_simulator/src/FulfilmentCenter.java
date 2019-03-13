@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Collections;
+import java.util.*;
 import java.util.stream.IntStream;
 
 public class FulfilmentCenter {
@@ -25,10 +26,9 @@ public class FulfilmentCenter {
         listOfProducts.add(newItem);
     }
 
-    void getProduct(Item whichItem){
+    void getProduct(Item whichItem) {
         if (listOfProducts.isEmpty()){
-            System.err.println("This fulfilment is empty. Any product has removed");
-            return;
+            throw new NullPointerException();
         }else {
             for (Item iterator : listOfProducts) {
                 if (iterator.name.compareToIgnoreCase(iterator.name) == 0) {
@@ -43,6 +43,21 @@ public class FulfilmentCenter {
                     }
                 }
             }
+        }
+    }
+
+    void removeProduct(Item whichItem){
+        if (listOfProducts.isEmpty()){
+            throw new NullPointerException();
+        } else {
+            for (Item iterator: listOfProducts){
+                if (iterator.name.compareToIgnoreCase(whichItem.name) == 0){
+                    listOfProducts.remove(iterator);
+                    System.out.println("Product has been correctly removed!");
+                    return;
+                }
+            }
+            throw new NoSuchElementException();
         }
     }
 }
