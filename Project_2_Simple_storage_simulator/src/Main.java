@@ -4,18 +4,20 @@ import java.util.NoSuchElementException;
 public class Main {
     public static void main(String argv[]) {
 
-        //Add new product to
         Item firstProduct = new Item("Apple", ItemCondition.NEW, 0.23, 5);
         firstProduct.print();
         FulfilmentCenter myFirstFulfilment = new FulfilmentCenter();
         Item secondProduct = new Item("Apple", ItemCondition.NEW, 0.23, 2);
+        Item fourthProduct = new Item("Apple", ItemCondition.REFURBISHED, 0.23, 2);
         Item thirdProduct = new Item("Pineapple", ItemCondition.NEW, 0.24, 2);
         try {
             myFirstFulfilment.addProduct(firstProduct);
             myFirstFulfilment.addProduct(secondProduct);
+            myFirstFulfilment.addProduct(fourthProduct);
             myFirstFulfilment.getProduct(thirdProduct);
             myFirstFulfilment.addProduct(thirdProduct);
-            List<Item> newItemList = myFirstFulfilment.search("Apfel");
+            List<Item> testListOfItems1 = myFirstFulfilment.search("Apple");
+            List<Item> testListOfItems2 = myFirstFulfilment.searchPartial("ppl");
 
         } catch (IllegalArgumentException err1) {
             System.err.println("If you add this product, the fulfillment will be overflowing");

@@ -84,5 +84,18 @@ public class FulfilmentCenter implements Comparator<Item>{
             return myTmpListOfItem;
     }
 
-    List<Item> searchPartial(String nameToSearch){}
+    List<Item> searchPartial(String nameToSearch){
+        if (listOfProducts.isEmpty()){ throw new NullPointerException(); }
+        List<Item> myTmpListOfItem = new ArrayList<>();
+        for(Item iterator: listOfProducts){
+            if(iterator.name.contains(nameToSearch)){
+                System.out.println("I found a products!");
+                iterator.print();
+                myTmpListOfItem.add(iterator);
+            }
+        }
+        if (myTmpListOfItem.isEmpty()){throw new NoSuchElementException();}
+        else
+            return myTmpListOfItem;
+    }
 }
