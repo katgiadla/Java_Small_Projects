@@ -8,7 +8,7 @@ public class FulfilmentCenter {
     List<Item> listOfProducts = new ArrayList<>(); //interface
     Integer maxCapacitance = 15;
 
-    public void addProduct(Item newItem){
+    void addProduct(Item newItem) {
         Integer currentAmountOfProducts = 0;
         for (Item iterator: listOfProducts){ currentAmountOfProducts += iterator.amount;}
         if (currentAmountOfProducts + newItem.amount > maxCapacitance){
@@ -23,5 +23,26 @@ public class FulfilmentCenter {
         }
         System.out.println("New product has added correctly!");
         listOfProducts.add(newItem);
+    }
+
+    void getProduct(Item whichItem){
+        if (listOfProducts.isEmpty()){
+            System.err.println("This fulfilment is empty. Any product has removed");
+            return;
+        }else {
+            for (Item iterator : listOfProducts) {
+                if (iterator.name.compareToIgnoreCase(iterator.name) == 0) {
+                    if (iterator.amount - whichItem.amount <= 0){
+                        listOfProducts.remove(iterator);
+                        System.out.println("The product has been removed correctly!");
+                        return;
+                    } else {
+                        iterator.amount = iterator.amount - whichItem.amount;
+                        System.out.println("Amount of this product has been correctly reduced!");
+                        return;
+                    }
+                }
+            }
+        }
     }
 }
