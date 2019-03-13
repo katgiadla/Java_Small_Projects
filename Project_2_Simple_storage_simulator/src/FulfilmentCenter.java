@@ -4,7 +4,7 @@ import java.util.Collections;
 import java.util.*;
 import java.util.stream.IntStream;
 
-public class FulfilmentCenter {
+public class FulfilmentCenter implements Comparator<Item>{
     String nameOfFillmentCenter;
     List<Item> listOfProducts = new ArrayList<>(); //interface
     Integer maxCapacitance = 15;
@@ -59,5 +59,23 @@ public class FulfilmentCenter {
             }
             throw new NoSuchElementException();
         }
+    }
+
+    @Override
+    public int compare(Item i1, Item i2){
+        return i1.name.compareToIgnoreCase(i2.name);
+    }
+
+    Item search(String nameToSearch){
+        if (listOfProducts.isEmpty()){ throw new NullPointerException(); }
+        Item myTmpItem = new Item(nameToSearch);
+        for (Item iterator: listOfProducts){
+            if(compare(myTmpItem, iterator) == 0){
+                System.out.println("I found a product!");
+                iterator.print();
+                return iterator;
+            }
+        }
+        throw new NoSuchElementException();
     }
 }
