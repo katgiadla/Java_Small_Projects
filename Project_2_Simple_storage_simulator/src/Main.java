@@ -1,3 +1,5 @@
+import java.util.NoSuchElementException;
+
 public class Main {
     public static void main(String argv[]) {
 
@@ -10,8 +12,13 @@ public class Main {
         try {
             myFirstFulfilment.addProduct(firstProduct);
             myFirstFulfilment.addProduct(secondProduct);
+            myFirstFulfilment.removeProduct(thirdProduct);
         } catch (IllegalArgumentException err1) {
             System.err.println("If you add this product, the fulfillment will be overflowing");
+        } catch (NullPointerException err2) {
+            System.err.println("In storage are nothing!");
+        } catch (NoSuchElementException err3){
+            System.err.println("In fulfilment isn't found this product");
         }
         myFirstFulfilment.getProduct(thirdProduct);
     }
