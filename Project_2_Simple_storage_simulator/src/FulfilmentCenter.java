@@ -65,19 +65,24 @@ public class FulfilmentCenter implements Comparator<Item>{
 
     @Override
     public int compare(Item i1, Item i2){
-        return i1.name.compareToIgnoreCase(i2.name);
+        return i1.name.compareTo(i2.name);
     }
 
-    Item search(String nameToSearch){
+    List<Item> search(String nameToSearch){
         if (listOfProducts.isEmpty()){ throw new NullPointerException(); }
         Item myTmpItem = new Item(nameToSearch);
+        List<Item> myTmpListOfItem = new ArrayList<>();
         for (Item iterator: listOfProducts){
             if(compare(myTmpItem, iterator) == 0){
                 System.out.println("I found a product!");
                 iterator.print();
-                return iterator;
+                myTmpListOfItem.add(iterator);
             }
         }
-        throw new NoSuchElementException();
+        if (myTmpListOfItem.isEmpty()){throw new NoSuchElementException();}
+        else
+            return myTmpListOfItem;
     }
+
+    List<Item> searchPartial(String nameToSearch){}
 }
