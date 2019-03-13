@@ -17,9 +17,11 @@ public class FulfilmentCenter implements Comparator<Item>{
         }
         for(Item iterator: listOfProducts){
             if (iterator.name.compareToIgnoreCase(newItem.name) == 0){
-                    System.out.println("Old product has added correctly!");
-                    iterator.amount += newItem.amount;
-                    return;
+                    if (iterator.condition.equals(newItem.condition)){
+                        System.out.println("Existed product has added correctly!");
+                        iterator.amount += newItem.amount;
+                        return;
+                    }
             }
         }
         System.out.println("New product has added correctly!");
