@@ -3,7 +3,7 @@ import java.util.List;
 import java.util.Collections;
 import java.util.stream.IntStream;
 
-public class Fulfilment {
+public class FulfilmentCenter {
     String nameOfFillmentCenter;
     List<Item> listOfProducts = new ArrayList<>(); //interface
     Integer maxCapacitance = 15;
