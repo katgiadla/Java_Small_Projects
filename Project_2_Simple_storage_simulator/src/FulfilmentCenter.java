@@ -9,6 +9,11 @@ public class FulfilmentCenter implements Comparator<Item>{
     List<Item> listOfProducts = new ArrayList<>(); //interface
     Integer maxCapacitance = 15;
 
+    FulfilmentCenter(String newName, Integer newMaxCapacitance){
+        this.nameOfFillmentCenter = newName;
+        this.maxCapacitance = newMaxCapacitance;
+    }
+
     void addProduct(Item newItem) {
         Integer currentAmountOfProducts = 0;
         for (Item iterator: listOfProducts){ currentAmountOfProducts += iterator.amount;}
