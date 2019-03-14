@@ -26,6 +26,8 @@ public class Main {
             myFirstFulfilment.summary();
             myFirstFulfilment.sortByAmount();
             myFirstFulfilment.summary();
+            Item sixthProduct = myFirstFulfilment.max();
+            sixthProduct.print();
         } catch (IllegalArgumentException err1) {
             System.err.println("If you add this product, the fulfillment will be overflowing");
         } catch (NullPointerException err2) {

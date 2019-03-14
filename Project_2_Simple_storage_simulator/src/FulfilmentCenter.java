@@ -121,4 +121,12 @@ public class FulfilmentCenter implements Comparator<Item>{
         Comparator toReverseOrdered = Collections.reverseOrder(new ToSortReversedByAmount());
         Collections.sort(listOfProducts, toReverseOrdered);
     }
+
+    Item max(){
+        if (listOfProducts.isEmpty()){ throw new NullPointerException(); }
+        Item maxOfAmountProduct = Collections.max(listOfProducts, (i1, i2) -> {
+            return Integer.compare(i1.amount, i2.amount);
+        });
+        return maxOfAmountProduct;
+    }
 }
