@@ -14,6 +14,10 @@ public class FulfilmentCenter implements Comparator<Item>{
         this.maxCapacitance = newMaxCapacitance;
     }
 
+    FulfilmentCenter(){
+        this.nameOfFillmentCenter = "ExampleName";
+    };
+
     void addProduct(Item newItem) {
         Integer currentAmountOfProducts = 0;
         for (Item iterator: listOfProducts){ currentAmountOfProducts += iterator.amount;}
