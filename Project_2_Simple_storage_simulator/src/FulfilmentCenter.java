@@ -16,6 +16,7 @@ public class FulfilmentCenter implements Comparator<Item>{
 
     FulfilmentCenter(){
         this.nameOfFillmentCenter = "ExampleName";
+        this.maxCapacitance = 0;
     };
 
     void addProduct(Item newItem) {
@@ -145,5 +146,13 @@ public class FulfilmentCenter implements Comparator<Item>{
             return Integer.compare(i1.amount, i2.amount);
         });
         return maxOfAmountProduct;
+    }
+
+    Integer howManyProductIHave(){
+        Integer howMany = 0;
+        for(Item iterator: listOfProducts){
+            howMany += iterator.amount;
+        }
+        return howMany;
     }
 }
