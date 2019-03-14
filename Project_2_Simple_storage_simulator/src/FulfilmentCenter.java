@@ -68,7 +68,15 @@ public class FulfilmentCenter implements Comparator<Item>{
         return i1.name.compareTo(i2.name);
     }
 
-
+    Integer countByCondition(ItemCondition conditionToSummary){
+        if (listOfProducts.isEmpty()){ throw new NullPointerException(); }
+        Integer howManyProducts = 0;
+        for (Item iterator: listOfProducts){
+            if (iterator.condition.equals(conditionToSummary)){ howManyProducts += iterator.amount; }
+        }
+        System.out.println(String.format("Count of products: %d", howManyProducts));
+        return howManyProducts;
+    }
 
     List<Item> search(String nameToSearch){
         if (listOfProducts.isEmpty()){ throw new NullPointerException(); }
