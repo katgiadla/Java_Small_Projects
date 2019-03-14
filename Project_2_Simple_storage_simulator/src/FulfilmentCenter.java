@@ -68,6 +68,8 @@ public class FulfilmentCenter implements Comparator<Item>{
         return i1.name.compareTo(i2.name);
     }
 
+
+
     List<Item> search(String nameToSearch){
         if (listOfProducts.isEmpty()){ throw new NullPointerException(); }
         Item myTmpItem = new Item(nameToSearch);
@@ -112,5 +114,11 @@ public class FulfilmentCenter implements Comparator<Item>{
                 return o1.name.compareToIgnoreCase(o2.name);
             }
             });
+    }
+
+    void sortByAmount(){
+        if (listOfProducts.isEmpty()){ throw new NullPointerException(); }
+        Comparator toReverseOrdered = Collections.reverseOrder(new ToSortReversedByAmount());
+        Collections.sort(listOfProducts, toReverseOrdered);
     }
 }

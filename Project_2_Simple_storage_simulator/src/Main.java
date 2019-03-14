@@ -8,9 +8,9 @@ public class Main {
         Item firstProduct = new Item("Apple", ItemCondition.NEW, 0.23, 5);
         firstProduct.print();
         FulfilmentCenter myFirstFulfilment = new FulfilmentCenter();
-        Item secondProduct = new Item("Apple", ItemCondition.NEW, 0.23, 2);
+        Item secondProduct = new Item("Apple", ItemCondition.NEW, 0.23, 1);
         Item fourthProduct = new Item("Apple", ItemCondition.REFURBISHED, 0.23, 2);
-        Item thirdProduct = new Item("Pineapple", ItemCondition.NEW, 0.24, 2);
+        Item thirdProduct = new Item("Pineapple", ItemCondition.NEW, 0.24, 4);
         Item fifthProduct = new Item("Lemonade", ItemCondition.NEW, 2.0, 3);
         try {
             myFirstFulfilment.addProduct(firstProduct);
@@ -23,6 +23,8 @@ public class Main {
             List<Item> testListOfItems2 = myFirstFulfilment.searchPartial("ppl");
             myFirstFulfilment.summary();
             myFirstFulfilment.sortByName();
+            myFirstFulfilment.summary();
+            myFirstFulfilment.sortByAmount();
             myFirstFulfilment.summary();
         } catch (IllegalArgumentException err1) {
             System.err.println("If you add this product, the fulfillment will be overflowing");
