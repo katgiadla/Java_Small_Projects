@@ -10,30 +10,10 @@ public class Main {
         FulfilmentCenter myFirstFulfilment = new FulfilmentCenter("firstFulment", 23);
         FulfilmentCenter mySecondFulfilment = new FulfilmentCenter("YourFulfilment", 21);
         FulfilmentCenterContainer myContainer = new FulfilmentCenterContainer();
-        Item secondProduct = new Item("Apple", ItemCondition.NEW, 0.23, 1);
-        Item fourthProduct = new Item("Apple", ItemCondition.REFURBISHED, 0.23, 2);
-        Item thirdProduct = new Item("Pineapple", ItemCondition.NEW, 0.24, 1);
-        Item fifthProduct = new Item("Lemonade", ItemCondition.NEW, 2.0, 3);
         myContainer.addCenter(myFirstFulfilment.nameOfFillmentCenter, myFirstFulfilment.maxCapacitance);
         myContainer.addCenter(mySecondFulfilment.nameOfFillmentCenter, mySecondFulfilment.maxCapacitance);
         try {
             myFirstFulfilment.addProduct(firstProduct);
-            myFirstFulfilment.addProduct(secondProduct);
-            myFirstFulfilment.addProduct(fourthProduct);
-            myFirstFulfilment.getProduct(thirdProduct);
-            myFirstFulfilment.addProduct(thirdProduct);
-            myFirstFulfilment.addProduct(fifthProduct);
-            myContainer.removeCenter(mySecondFulfilment.nameOfFillmentCenter);
-            List<Item> testListOfItems1 = myFirstFulfilment.search("Apple");
-            List<Item> testListOfItems2 = myFirstFulfilment.searchPartial("ppl");
-            myFirstFulfilment.summary();
-            myFirstFulfilment.sortByName();
-            myFirstFulfilment.summary();
-            myFirstFulfilment.sortByAmount();
-            myFirstFulfilment.summary();
-            Item sixthProduct = myFirstFulfilment.max();
-            sixthProduct.print();
-            myFirstFulfilment.countByCondition(ItemCondition.NEW);
             myContainer.summary();
         } catch (IllegalArgumentException err1) {
             System.err.println("If you add this product, the fulfillment will be overflowing!");

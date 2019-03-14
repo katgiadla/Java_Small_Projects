@@ -36,7 +36,7 @@ public class FulfilmentCenterContainer {
         Iterator<Map.Entry<String, FulfilmentCenter>> it = Fulfilment.entrySet().iterator();
         while(it.hasNext()){
             Map.Entry<String, FulfilmentCenter> entryFulfilment = it.next();
-            System.out.println(String.format("Name: %s Fill %.1f proc.", entryFulfilment.getKey(), (entryFulfilment.getValue().howManyProductIHave()/entryFulfilment.getValue().maxCapacitance)*100));
+            System.out.println(String.format("Name: %s Fill %d proc.", entryFulfilment.getKey(), ((entryFulfilment.getValue().howManyProductIHave()/entryFulfilment.getValue().maxCapacitance)*100)));
         }
     }
 }
