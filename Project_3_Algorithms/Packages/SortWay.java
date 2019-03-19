@@ -5,7 +5,7 @@ import java.util.Random;
 
 public abstract class SortWay {
 
-    public void sortOnMyWay(Integer[] arr, Integer size) throws ZeroElementsException{};
+    public abstract void sortOnMyWay(Integer[] arr, Integer size) throws ZeroElementsException;
 
     public void swap(Integer value1, Integer value2){
         Integer tmp = 0;
