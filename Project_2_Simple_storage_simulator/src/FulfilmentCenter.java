@@ -8,10 +8,12 @@ public class FulfilmentCenter implements Comparator<Item>{
     String nameOfFillmentCenter;
     List<Item> listOfProducts = new ArrayList<>(); //interface
     Integer maxCapacitance = 15;
+    Integer howManyProductsHave = 0;
 
     FulfilmentCenter(String newName, Integer newMaxCapacitance){
         this.nameOfFillmentCenter = newName;
         this.maxCapacitance = newMaxCapacitance;
+        howManyProductsHave = 0;
     }
 
     FulfilmentCenter(){
@@ -149,10 +151,10 @@ public class FulfilmentCenter implements Comparator<Item>{
     }
 
     Integer howManyProductIHave(){
-        Integer howMany = 0;
         for(Item iterator: listOfProducts){
-            howMany += iterator.amount;
+            this.howManyProductsHave += iterator.amount;
         }
-        return howMany;
+        System.out.println(String.format("HowMany: %d", howManyProductsHave));
+        return howManyProductsHave;
     }
 }

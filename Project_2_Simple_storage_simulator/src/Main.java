@@ -14,7 +14,7 @@ public class Main {
         myContainer.addCenter(mySecondFulfilment.nameOfFillmentCenter, mySecondFulfilment.maxCapacitance);
         try {
             myFirstFulfilment.addProduct(firstProduct);
-            myContainer.summary();
+            myFirstFulfilment.countByCondition(ItemCondition.NEW);
         } catch (IllegalArgumentException err1) {
             System.err.println("If you add this product, the fulfillment will be overflowing!");
         } catch (NullPointerException err2) {
