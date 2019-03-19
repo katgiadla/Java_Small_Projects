@@ -5,7 +5,14 @@ import java.util.Random;
 
 public abstract class SortWay {
 
-    public void sortMyOnWay(Integer[] arr, Integer size){};
+    public void sortOnMyWay(Integer[] arr, Integer size) throws ZeroElementsException{};
+
+    public void swap(Integer value1, Integer value2){
+        Integer tmp = 0;
+        tmp = value1;
+        value1 = value2;
+        value2 = tmp;
+    }
 
     public void printArray(Integer[] arr){ System.out.println(Arrays.toString(arr)); }
 
@@ -34,13 +41,21 @@ public abstract class SortWay {
         Integer[] realOption = generateRealOption(sizeOfArray);
 
         long tStartPessimist = System.currentTimeMillis();
-        sortMyOnWay(pessimisticOption, sizeOfArray);
+        try {
+            sortOnMyWay(pessimisticOption, pessimisticOption.length);
+        } catch (ZeroElementsException e){
+            e.getMessage();
+        }
         long tEndPessimist = System.currentTimeMillis();
         long tDeltaPessimist = tEndPessimist - tStartPessimist;
         double elapsedSecondsPessimist = tDeltaPessimist/1000.0;
 
         long tStartReal = System.currentTimeMillis();
-        sortMyOnWay(realOption, sizeOfArray);
+        try{
+        sortOnMyWay(realOption, pessimisticOption.length);
+        } catch (ZeroElementsException e){
+            e.getMessage();
+        }
         long tEndReal = System.currentTimeMillis();
         long tDeltaReal = tEndReal - tStartReal;
         double elapsedSecondsReal = tDeltaReal/1000.0;
