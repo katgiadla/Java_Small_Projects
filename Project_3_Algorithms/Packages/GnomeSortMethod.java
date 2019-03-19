@@ -1,6 +1,6 @@
 public class GnomeSortMethod extends SortWay {
     @Override
-    public void sortOnMyWay(Integer arr[], Integer size) throws ZeroElementsException{
+    public void sortOnMyWay(Integer[] arr, Integer size) throws ZeroElementsException{
         Integer index = 0;
         if (arr.length == 0) {throw new ZeroElementsException();}
         System.out.print("Array before sort: ");
