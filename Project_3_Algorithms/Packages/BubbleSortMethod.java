@@ -9,6 +9,7 @@ public class BubbleSortMethod extends SortWay{
         for (int i = 0; i < arr.length; i++){
             if(arr[i] > arr[i+1]){swap(arr[i], arr[i+1]);} }
         sortOnMyWay(arr, size-1);
+        System.out.println("Array after bubble sort");
         printArray(arr);
         checkTimeOfSort();
     }
