@@ -12,7 +12,8 @@ public class HeapSortMethod extends SortWay{
     }
 
     @Override
-    public void sortOnMyWay(Integer[] arr, Integer size){
+    public void sortOnMyWay(Integer[] arr, Integer size) throws ZeroElementsException{
+        if (arr.length == 0) {throw new ZeroElementsException();}
         System.out.print("Array before sort: ");
         printArray(arr);
         for(Integer i = (size/2) - 1; i>=0; i++){ heapify(arr, size, i); }

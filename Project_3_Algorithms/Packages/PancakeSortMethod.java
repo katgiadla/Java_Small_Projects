@@ -19,7 +19,8 @@ public class PancakeSortMethod extends SortWay {
     }
 
     @Override
-    public void sortOnMyWay(Integer[] arr, Integer size){
+    public void sortOnMyWay(Integer[] arr, Integer size) throws ZeroElementsException{
+        if (arr.length == 0) {throw new ZeroElementsException();}
         System.out.print("Array before sort: ");
         printArray(arr);
         for (Integer currentSize = size; currentSize > 1; --currentSize){

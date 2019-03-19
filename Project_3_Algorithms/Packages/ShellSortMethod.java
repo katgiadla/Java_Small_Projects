@@ -1,9 +1,10 @@
 public class ShellSortMethod extends SortWay {
     @Override
-    public void sortOnMyWay(Integer[] arr, Integer size){
+    public void sortOnMyWay(Integer[] arr, Integer size) throws ZeroElementsException{
         Integer tmp, j;
         System.out.print("Array before sort: ");
         printArray(arr);
+        if (arr.length == 0) {throw new ZeroElementsException();}
         for (Integer gap = size/2; gap > 0; gap /= 2){
             for (Integer i = gap; i<size; i += 1){
                 tmp = arr[i];
