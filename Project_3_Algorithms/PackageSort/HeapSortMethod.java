@@ -1,3 +1,5 @@
+package packageSort;
+
 public class HeapSortMethod extends SortWay{
     private void heapify(Integer[] arr, Integer size, Integer node){
         Integer largest = node;

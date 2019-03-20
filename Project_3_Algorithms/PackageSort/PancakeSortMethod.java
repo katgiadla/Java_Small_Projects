@@ -1,3 +1,5 @@
+package packageSort;
+
 public class PancakeSortMethod extends SortWay {
     private void flip(Integer[] arr, Integer i){
         Integer tmp, start = 0;

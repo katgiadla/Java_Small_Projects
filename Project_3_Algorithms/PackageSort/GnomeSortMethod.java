@@ -1,3 +1,5 @@
+package packageSort;
+
 public class GnomeSortMethod extends SortWay {
     @Override
     public void sortOnMyWay(Integer[] arr, Integer size) throws ZeroElementsException{

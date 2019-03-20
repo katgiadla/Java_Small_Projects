@@ -1,3 +1,5 @@
+package packageSort;
+
 public class BubbleSortMethod extends SortWay{
 
     @Override
