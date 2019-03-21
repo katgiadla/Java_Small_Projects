@@ -1,4 +1,7 @@
 import packageSort.*;
+import packageMatrix.*;
+import packageSubstring.*;
+import packageTarget.*;
 
 public class Main {
     public static void main(String[] argv){
@@ -7,7 +10,9 @@ public class Main {
         try {
             newBubbleSort.sortOnMyWay(arr, arr.length);
         } catch (ZeroElementsException e){
-            System.err.println("Zero element in array!");
+            System.err.println("Zero elements in array!");
         }
+
+
     }
 }
