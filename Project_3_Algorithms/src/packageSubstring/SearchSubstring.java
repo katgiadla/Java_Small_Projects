@@ -31,8 +31,9 @@ public class SearchSubstring{
                     i++;
                     break;
                 } else { j++; }
-                if(j == a.length()){
+                if(j == a.length()&& k!= 0){
                    countOfStrings++;
+                   k = 0;
                 }
             }
             }
