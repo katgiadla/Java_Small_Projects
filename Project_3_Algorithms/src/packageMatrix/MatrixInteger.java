@@ -8,13 +8,12 @@ import java.util.Random;
 
 public class MatrixInteger extends Matrix {
     int[][] myMatrix;
-    //private List<Matrix> matrixIntegerList = new ArrayList<Matrix>();
 
-    MatrixInteger(int newSize){
+    public MatrixInteger(int newSize){
         size = newSize;
         myMatrix = new int[size][size];
     }
-    MatrixInteger(){
+    public MatrixInteger(){
         size = 0;
         myMatrix = new int[size][size];
     }

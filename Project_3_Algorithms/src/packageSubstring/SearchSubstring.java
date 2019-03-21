@@ -3,7 +3,7 @@ package packageSubstring;
 import java.util.EmptyStackException;
 
 public class SearchSubstring{
-    int substring(String a, String b){
+    public int substring(String a, String b){
         if (b.length() == 0 || a.length() == 0){
             throw new EmptyStackException();
         }
