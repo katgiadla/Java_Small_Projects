@@ -31,12 +31,12 @@ public class TargetProblemSolution {
             } else {
                 arrIndex[0] = (int) myElement.getValue();
                 arrIndex[1] = myIntegers.get(diffrence);
-                return arrIndex;
+               break;
             }
         }
         if (!existedPair){
             throw new IllegalArgumentException();
         }
+        return arrIndex;
     }
-
 }
