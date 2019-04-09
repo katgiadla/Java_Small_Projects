@@ -2,8 +2,13 @@ package sample;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
+import java.util.Set;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.embed.swt.FXCanvas;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -16,8 +21,10 @@ import static sample.Windows.CreateAddNewItemWindow;
 
 public class Controller {
 
+    public static ObservableList<Task> tODOList = FXCollections.observableArrayList();
+
     @FXML
-    private ListView<Task> listTODO;
+    private ListView<Task> listTODO = new ListView<>(tODOList);
 
     @FXML
     private ListView<Task> listDoing;
@@ -39,6 +46,8 @@ public class Controller {
 
     @FXML
     private ListView<Task> listDone;
+
+
 
     @FXML
     void addNewTask(ActionEvent event) {

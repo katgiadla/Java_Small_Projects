@@ -1,8 +1,10 @@
 package sample;
 
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -40,18 +42,25 @@ public class AddTaskWindow {
     private Label lebelDate;
 
     @FXML
-    private ComboBox<Priority> comboBox;
+    private ComboBox<Priority> comboBox = new ComboBox<Priority>();
 
     @FXML
     private TextArea textArea;
 
     @FXML
     void makeNewTask(ActionEvent event) {
-
+        String newTitle = titleField.getText();
+        Priority newPriority = comboBox.getValue();
+        LocalDate newExpiryDate = datePicker.getValue();
+        String newDescription = textArea.getText();
+        Controller.tODOList.add(new Task(newTitle, newPriority, newExpiryDate, newDescription));
     }
 
     @FXML
     void initialize() {
+
+        comboBox.getItems().addAll(Priority.today, Priority.tommorow, Priority.thisWeek);
+
         assert lebelPriority != null : "fx:id=\"lebelPriority\" was not injected: check your FXML file 'addTaskWindow.fxml'.";
         assert addNewItemButton != null : "fx:id=\"addNewItemButton\" was not injected: check your FXML file 'addTaskWindow.fxml'.";
         assert titleField != null : "fx:id=\"titleField\" was not injected: check your FXML file 'addTaskWindow.fxml'.";
