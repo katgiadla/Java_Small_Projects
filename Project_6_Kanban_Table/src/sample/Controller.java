@@ -1,14 +1,18 @@
 package sample;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.GridPane;
+
+import static sample.Windows.CreateAddNewItemWindow;
 
 public class Controller {
 
@@ -38,7 +42,11 @@ public class Controller {
 
     @FXML
     void addNewTask(ActionEvent event) {
-
+        try{
+            CreateAddNewItemWindow();
+        } catch(IOException e){
+            e.printStackTrace();
+        }
     }
 
     @FXML
