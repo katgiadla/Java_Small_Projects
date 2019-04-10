@@ -12,10 +12,9 @@ import javafx.embed.swt.FXCanvas;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
+import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
+import javafx.scene.shape.Circle;
 
 import static sample.Windows.CreateAddNewItemWindow;
 
@@ -48,7 +47,6 @@ public class Controller {
     private ListView<Task> listDone;
 
 
-
     @FXML
     void addNewTask(ActionEvent event) {
         try{
@@ -69,5 +67,32 @@ public class Controller {
         assert labelTODO != null : "fx:id=\"labelTODO\" was not injected: check your FXML file 'sample.fxml'.";
         assert listDone != null : "fx:id=\"listDone\" was not injected: check your FXML file 'sample.fxml'.";
 
+    }
+
+    static class ColorRectCell extends ListCell<Task> {
+        private Circle getCircle(){
+            Circle rect = new Circle(5);
+            // rect.setFill(Color.web(getItem().getPriorityColor()));
+            return rect;
+        }
+
+
+
+        public void updateItem(Task item, boolean empty) {
+            super.updateItem(item, empty);
+
+            if (empty) {
+                setText(null);
+                setGraphic(null);
+                setTooltip(null);
+            }
+            else{
+                setText(getItem().getTitle());
+                setGraphic(getCircle());
+                Tooltip tooltip = new Tooltip();
+                tooltip.setText(getItem().getDescription());
+                setTooltip(tooltip);
+            }
+        }
     }
 }

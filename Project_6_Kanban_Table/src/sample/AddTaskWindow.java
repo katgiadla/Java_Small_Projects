@@ -15,6 +15,8 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 
+import static sample.Windows.addTaskWindowStage;
+
 public class AddTaskWindow {
 
     @FXML
@@ -54,6 +56,7 @@ public class AddTaskWindow {
         LocalDate newExpiryDate = datePicker.getValue();
         String newDescription = textArea.getText();
         Controller.tODOList.add(new Task(newTitle, newPriority, newExpiryDate, newDescription));
+        addTaskWindowStage.close();
     }
 
     @FXML

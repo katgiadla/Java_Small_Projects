@@ -51,7 +51,8 @@ public class Task {
         this.localDate = localDate;
     }
 
-
-
-
+    @Override
+    public String toString() {
+        return title;
+    }
 }
