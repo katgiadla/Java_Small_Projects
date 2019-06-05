@@ -15,6 +15,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.shape.Circle;
+import javafx.util.Callback;
 
 import static sample.Windows.CreateAddNewItemWindow;
 
@@ -67,6 +68,11 @@ public class Controller {
         assert labelTODO != null : "fx:id=\"labelTODO\" was not injected: check your FXML file 'sample.fxml'.";
         assert listDone != null : "fx:id=\"listDone\" was not injected: check your FXML file 'sample.fxml'.";
 
+        listTODO.setCellFactory(new Callback<ListView<Task>, ListCell<Task>>() {
+            @Override public ListCell<Task> call(ListView<Task> list) {
+                return new ColorRectCell();
+            }
+        });
     }
 
     static class ColorRectCell extends ListCell<Task> {
@@ -75,8 +81,6 @@ public class Controller {
             // rect.setFill(Color.web(getItem().getPriorityColor()));
             return rect;
         }
-
-
 
         public void updateItem(Task item, boolean empty) {
             super.updateItem(item, empty);
@@ -95,4 +99,6 @@ public class Controller {
             }
         }
     }
+
+
 }
