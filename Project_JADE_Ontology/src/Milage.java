@@ -1,22 +1,22 @@
 import jade.content.Concept;
 
 public class Milage implements Concept {
-    private Integer _interval = 0;
+    private Integer _interval;
     private String _measurementUnit = "Unit";
 
-    public Integer get_interval() {
+    public Integer getInterval() {
         return _interval;
     }
 
-    public void set_interval(Integer _interval) {
+    public void setInterval(Integer _interval) {
         this._interval = _interval;
     }
 
-    public String get_measurementUnit() {
+    public String getMeasurementUnit() {
         return _measurementUnit;
     }
 
-    public void set_measurementUnit(String _measurementUnit) {
+    public void setMeasurementUnit(String _measurementUnit) {
         this._measurementUnit = _measurementUnit;
     }
 }

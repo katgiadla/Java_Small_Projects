@@ -5,27 +5,27 @@ public class Car implements Concept {
     private String _model;
     private String _manufactured;
 
-    public String get_registration() {
+    public String getRegistration() {
         return _registration;
     }
 
-    public String get_model() {
+    public String getModel() {
         return _model;
     }
 
-    public String get_manufactured() {
+    public String getManufactured() {
         return _manufactured;
     }
 
-    public void set_registration(String _registration) {
+    public void setRegistration(String _registration) {
         this._registration = _registration;
     }
 
-    public void set_model(String _model) {
+    public void setModel(String _model) {
         this._model = _model;
     }
 
-    public void set_manufactured(String _manufactured) {
+    public void setManufactured(String _manufactured) {
         this._manufactured = _manufactured;
     }
 }

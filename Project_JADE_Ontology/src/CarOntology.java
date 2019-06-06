@@ -1,3 +1,4 @@
+import jade.content.Concept;
 import jade.content.onto.BasicOntology;
 import jade.content.onto.Ontology;
 import jade.content.onto.OntologyException;
@@ -14,8 +15,8 @@ public class CarOntology extends Ontology {
     public static final String MANUFACTURED = "manufactured";
 
     public static final String MILAGE = "milage";
-    public static final String INTERVAL = "0.0";
-    public static final String MEASUREMENTUNIT = "unit";
+    public static final String INTERVAL = "interval";
+    public static final String MEASUREMENTUNIT = "measurementUnit";
 
     public static final String RUNS = "runs";
     public static final String RUNS_MILAGE = "milage";
@@ -42,7 +43,8 @@ public class CarOntology extends Ontology {
             cs.add(MEASUREMENTUNIT, (PrimitiveSchema)getSchema(BasicOntology.STRING), ObjectSchema.OPTIONAL);
 
             PredicateSchema ps = (PredicateSchema)getSchema(RUNS);
-            ps.add(MILAGE, (ConceptSchema)getSchema(CAR));
+            ps.add(CAR, (ConceptSchema)getSchema(CAR));
+            ps.add(MILAGE, (ConceptSchema)getSchema(MILAGE));
         } catch (OntologyException oe) {
             oe.printStackTrace();
         }
